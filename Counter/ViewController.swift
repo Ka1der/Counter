@@ -27,12 +27,14 @@ class ViewController: UIViewController {
         historyFeild.isEditable = false
         labelCounter.font = UIFont.boldSystemFont(ofSize: 15)
     }
+    // функция обновления времени к каждому изменению
     func updateTime() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
         let currentDate = dateFormatter.string(from: Date())
         return currentDate
     }
+    // отработка нажания +
     @IBAction func buttonDidTapPlusCounter(_ sender: Any) {
         counter += 1
         labelCounter.text = "Значение счетчика: \(counter)"
@@ -43,6 +45,7 @@ class ViewController: UIViewController {
         let scrollHistoryField = NSMakeRange(historyFeild.text.count - 1, 1)
         historyFeild.scrollRangeToVisible(scrollHistoryField)
     }
+    // отработка нажания -
     @IBAction func buttonDidTapMinusCounter(_ sender: Any) {
         if counter > 0 {
             counter -= 1
@@ -65,6 +68,7 @@ class ViewController: UIViewController {
                 }
             }
         }
+    // отработка нажания сброс
     @IBAction func buttotDidTapResetCounter(_ sender: Any) {
         counter = 0
         labelCounter.text = "Значение счетчика: \(counter)"
